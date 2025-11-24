@@ -8,13 +8,10 @@ load_dotenv()  # charge les variables du fichier .env
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-# SECURITY
-#SECRET_KEY = os.environ.get("SECRET_KEY")
-# DEBUG = os.environ.get("DEBUG", "False") == "True"
 SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = os.environ.get("DEBUG", "False") == "True"
 ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "*").split(",")
+
 
 # Application
 INSTALLED_APPS = [
