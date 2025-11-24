@@ -90,3 +90,5 @@ EMAIL_HOST_USER = 'ephsg1985@gmail.com'
 EMAIL_HOST_PASSWORD = 'roxo yhta leym uwdq'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 CONTACT_RECIPIENTS = ['ephsg1985@gmail.com']
+
+# Trigger full rebuild on Render
