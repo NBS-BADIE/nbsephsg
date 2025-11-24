@@ -8,7 +8,8 @@ load_dotenv()  # charge les variables du fichier .env
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY = os.environ.get("SECRET_KEY", "django-insecure-6ljv)smuzv@vpzvu$*56iqj4()@k=yaw#k8m@d*ij09x1aaw%q")
+
 DEBUG = os.environ.get("DEBUG", "False") == "True"
 ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "*").split(",")
 
