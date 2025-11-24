@@ -1,1 +1,1 @@
-web: gunicorn nbsephsg.wsgi
+web: gunicorn hopital.wsgi
