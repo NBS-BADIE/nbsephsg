@@ -58,9 +58,15 @@ TEMPLATES = [
 WSGI_APPLICATION = 'hopital.wsgi.application'
 
 # DATABASE (local SQLite + Render PostgreSQL)
+import dj_database_url
+
 if 'RENDER' in os.environ:
     DATABASES = {
-        'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
+        'default': dj_database_url.config(
+            default=os.environ.get('DATABASE_URL'),
+            conn_max_age=600,
+            ssl_require=True  # 🔒 Force la connexion SSL sur Render
+        )
     }
 else:
     DATABASES = {
@@ -69,6 +75,7 @@ else:
             'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
+
 
 AUTH_USER_MODEL = 'gestion.AppUser'
 
