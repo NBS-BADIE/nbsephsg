@@ -3,11 +3,26 @@
 
 {% block content %}
 
-<header class="hero">
-  <div class="container">
+<<style>
+  .hero .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* ajuster selon le besoin */
+    background: linear-gradient(0deg, rgba(4,8,20,0.55), rgba(4,8,20,0.15));
+    z-index: 1;
+    border-bottom-left-radius: 12px; /* optionnel pour arrondir le bas */
+    border-bottom-right-radius: 12px;
+  }
+</style>
+
+<header class="hero position-relative">
+  <div class="container position-relative">
     <div class="row align-items-center">
       
       <!-- LEFT SIDE -->
+
       <div class="col-lg-6">
         <div class="mb-3">
           <span class="badge bg-primary">Institution</span>
@@ -22,7 +37,7 @@
           <a class="btn btn-primary btn-lg" href="{% url 'a_propos' %}">En savoir plus</a>
           <a class="btn btn-outline-secondary btn-lg" href="{% url 'contact' %}">Nous contacter</a>
         </div>
-
+<div class="overlay"></div>
         <div class="glass-card d-flex gap-3 align-items-center">
           <div class="badge-glass">
             <i class="bi bi-geo-alt-fill fs-3 text-primary"></i>
@@ -36,6 +51,7 @@
             <div class="fw-semibold">Lat: 36.583872 • Long: 2.128287</div>
           </div>
         </div>
+        
       </div>
 
       <!-- RIGHT SIDE -->

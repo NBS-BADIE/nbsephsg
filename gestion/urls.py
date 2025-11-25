@@ -10,7 +10,6 @@ urlpatterns = [
     # ================= ACCUEIL / VISITEUR =================
     path('apply-migrations/', views.apply_migrations, name='apply_migrations'),
 
-
     # ================= ACCUEIL / VISITEUR =================
     path('', views.accueil, name='accueil'),
     path('home/', views.home, name='home'),  # page visiteur après clic
