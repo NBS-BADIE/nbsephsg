@@ -27,6 +27,16 @@ from django.views.decorators.csrf import csrf_exempt
 from django.conf import settings
 import os, json
 
+# gestion/views.py
+from django.http import HttpResponse
+from django.core.management import call_command
+
+def apply_migrations(request):
+    call_command('migrate')
+    return HttpResponse("Migrations applied!")
+
+
+
 
 # =================== Compteur global ===================
 def get_compteur(request):
