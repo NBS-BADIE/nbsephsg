@@ -1,4 +1,6 @@
-web: python manage.py migrate && gunicorn hopital.wsgi --bind 0.0.0.0:$PORT
+release: ./migrate.sh
+web: gunicorn hopital.wsgi
+
 
 
 
