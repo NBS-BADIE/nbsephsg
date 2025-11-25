@@ -4,6 +4,3 @@ web: gunicorn hopital.wsgi
 
 
 
-
-
-
