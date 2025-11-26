@@ -10,6 +10,8 @@ urlpatterns = [
     # ================= ACCUEIL / VISITEUR =================
     path('apply-migrations/', views.apply_migrations, name='apply_migrations'),
     path('import-data/', views.import_data, name='import_data'),
+    path('list-static/', views.list_static),
+
 
     # ================= ACCUEIL / VISITEUR =================
     path('', views.accueil, name='accueil'),

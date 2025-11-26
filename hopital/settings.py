@@ -27,6 +27,17 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / 'static']          # dossier source de tes images
+STATIC_ROOT = BASE_DIR / 'staticfiles'           # où collectstatic copie tout
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
+# ========== Medias 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
 # Application
 INSTALLED_APPS = [
     'django.contrib.admin',

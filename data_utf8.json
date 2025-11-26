@@ -1,0 +1,464 @@
+﻿[
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2025-11-16T09:09:26.591Z",
+    "user": 5,
+    "content_type": 9,
+    "object_id": "6",
+    "object_repr": "Badix",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2025-11-16T09:09:43.415Z",
+    "user": 5,
+    "content_type": 9,
+    "object_id": "6",
+    "object_repr": "Badix",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\", \"Email address\"]}}]"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "bw6m9hds0ylzw6btp4pynbq3no3ns83r",
+  "fields": {
+    "session_data": "eyJjb21wdGV1cl9pbmNyZW1lbnRlIjp0cnVlfQ:1vKzXT:Fx0bzz7UtoR6N6mdFK6LE7bBbzcHs4SWKgJepok53Cs",
+    "expire_date": "2025-12-01T13:45:03.572Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "d4f7vpoca254p96imstqsxptofav73gl",
+  "fields": {
+    "session_data": ".eJxVjDsOwyAQBe-ydYTA4RO7TJ8zWMuyxM4HIgxVlLvHlty4fTPzvkD5_ancyjgnKvzmVBmGWhqfYMRWp7EtvMIAA1g4bB7pyWkD4YHpngXlVMvsxaaInS7ilgO_rrt7OJhwmdZa2R4tU0--6z1rjp2z0qEx2ksjozqr6DVhCNGR1I6Q9KqE4Iy_KIkWfn-BnELs:1vLMXu:eqfLlUcX3WeXWymHX53vEMeYTIlSbNME9T6iAYVDjIM",
+    "expire_date": "2025-12-02T14:19:02.954Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "zwuhr34d93j7nubv40zexd4l6o5l4clt",
+  "fields": {
+    "session_data": ".eJxVjDsOwyAQBe-ydYTA4RO7TJ8zWMuyxM4HIgxVlLvHlty4fTPzvkD5_ancyjgnKvzmVBmGWhqfYMRWp7EtvMIAA1g4bB7pyWkD4YHpngXlVMvsxaaInS7ilgO_rrt7OJhwmdZa2R4tU0--6z1rjp2z0qEx2ksjozqr6DVhCNGR1I6Q9KqE4Iy_KIkWfn-BnELs:1vO9r5:KDatqBGiwqLu8XjriXZWP3-nUXBMmIA_GhDfYzwuCeI",
+    "expire_date": "2025-12-10T07:22:23.011Z"
+  }
+},
+{
+  "model": "gestion.compteurvisites",
+  "pk": 1,
+  "fields": {
+    "nombre": 61
+  }
+},
+{
+  "model": "gestion.service",
+  "pk": 1,
+  "fields": {
+    "nom": "UMC ( Urgences MÚdico-Chirurgicales )",
+    "description": "InaugurÚ en 1985 comme pavillon des urgences, il f¹t ÚrigÚ en UMC en Mars 2008, ce dernier compte (04) salle dÆobservation, (03) cabinets, chirurgical, orthopÚdique et pÚdiatrique, une (02) unitÚ de rÚanimation chirurgicale et mÚdicale misent  en service en 1992 et une (01) salle opÚratoire.\r\nPendant le 2Þme semestre de lÆannÚe 2009, lÆunitÚ de rÚanimation chirurgicale a connu une extension de 05 Ó 16 lits et une mise Ó niveau aux normes internationales.",
+    "image": "services/UMC_kSEB7zC.png"
+  }
+},
+{
+  "model": "gestion.service",
+  "pk": 2,
+  "fields": {
+    "nom": "PÚdiatrie",
+    "description": "Mis en service en juillet 1985, le service de pÚdiatrie comprend deux (02) unitÚs, la pÚdiatrie dÆune capacitÚ de 20 lit et la nÚonatologie qui comprend 08 lit en plus dÆune aile dÆisolement de 02 lits.\r\nDes travaux dÆamÚnagement et de mise en  nÚonatal .furent rÚalisÚs en lÆannÚe 2007/2008.",
+    "image": "services/pediatrie_ADBgXq0.jpg"
+  }
+},
+{
+  "model": "gestion.service",
+  "pk": 3,
+  "fields": {
+    "nom": "MÚdecine Interne",
+    "description": "Fonctionnel depuis  Juillet1985 composÚ jadis des unitÚs homme et  femme et endocrinologieûdiabÚtologie, 04 autres unitÚs lui sont rajoutÚ en 2008, il sÆagit de lÆunitÚ de lÆinfectiologie, lÆunitÚ de cardiologie, lÆunitÚ de nÚphrologie ainsi que l'unitÚ d'hÚmatologie et ce pour une meilleur rÚponse aux besoins de malades et lÆamÚlioration de leurs prise en charge mÚdicale",
+    "image": "services/MI.jpg"
+  }
+},
+{
+  "model": "gestion.service",
+  "pk": 4,
+  "fields": {
+    "nom": "Chirurgie GÚnÚrale",
+    "description": "Mis en fonction en juillet 1985, le service de chirurgie gÚnÚrale a connu une grande Úvolution dans la prise en charge  des malades,  ce qui a fait de lui un p¶le important au niveau de la wilaya de Tipaza (prÚfecture), en 2008 une unitÚ de chirurgie pÚdiatrique lui  est rattachÚ. En lÆannÚe 2006 les premiÞres interventions de l'aporascopie sont rÚalisÚes sur des malades adulte en lÆannÚe  2007 ces  technique  sont Úlargi aux enfants.",
+    "image": "services/Chir_G.jpg"
+  }
+},
+{
+  "model": "gestion.service",
+  "pk": 5,
+  "fields": {
+    "nom": "Chirurgie Maxillo-Faciale",
+    "description": "-",
+    "image": "services/Chir-Max.jpeg"
+  }
+},
+{
+  "model": "gestion.service",
+  "pk": 6,
+  "fields": {
+    "nom": "OrthopÚdie",
+    "description": "Ouvert en lÆannÚe 1992 avec un seul orthopÚdiste traumatologue, depuis nÆa cessÚ de se dÚvelopper, en lÆannÚe 2009 il comporte 06 orthopÚdistes traumatologues, et devient par excellence un p¶le rÚgional, un programme de la paroscopie est tracÚ en 2008, sa rÚalisation commence le 1 trimestre 2009, en plus de quelque tentatives, en micro chirurgie  et de lÆhernie discale quand Ó la prothÞse totale, elle est prÚvue pour le 4 Þme  trimestre 2009.",
+    "image": "services/Ortho.jpg"
+  }
+},
+{
+  "model": "gestion.service",
+  "pk": 7,
+  "fields": {
+    "nom": "Oncologie",
+    "description": "-",
+    "image": "services/Onco.jpg"
+  }
+},
+{
+  "model": "gestion.service",
+  "pk": 8,
+  "fields": {
+    "nom": "HÚmodialyse",
+    "description": "-",
+    "image": "services/Hemo.jpg"
+  }
+},
+{
+  "model": "gestion.service",
+  "pk": 9,
+  "fields": {
+    "nom": "GynÚcologie ObstÚtrique",
+    "description": "Le service de GynÚco-ObstÚtrique a ÚtÚ ouvert en 1985, dÆune capacitÚ  de 35 lits avec 02 salles  dÆaccouchements, il est composÚ de deux (02) unitÚs ; une pour lÆObstÚtrique (20 lits), lÆautre pour la GynÚcologie, une aile  de 06 lits rÚservÚe aux grossesses a risque, un   centre de planification familiale (CPF) f¹t crÚÚ auprÞs du dit service  en 1996, depuis, il joue un r¶le important pour la rÚussite du programme dÆespacement des naissances.",
+    "image": "services/Gyn.jpg"
+  }
+},
+{
+  "model": "gestion.servicedetail",
+  "pk": 1,
+  "fields": {
+    "service": 1,
+    "nb_lits": 8,
+    "cout_journee": "25500.00"
+  }
+},
+{
+  "model": "gestion.servicedetail",
+  "pk": 2,
+  "fields": {
+    "service": 4,
+    "nb_lits": 42,
+    "cout_journee": "32800.00"
+  }
+},
+{
+  "model": "gestion.servicedetail",
+  "pk": 3,
+  "fields": {
+    "service": 2,
+    "nb_lits": 26,
+    "cout_journee": "23800.00"
+  }
+},
+{
+  "model": "gestion.effectifservice",
+  "pk": 1,
+  "fields": {
+    "service": 1,
+    "professeurs": 0,
+    "specialistes": 2,
+    "generalistes": 20,
+    "paramedicaux": 35,
+    "autres": 4
+  }
+},
+{
+  "model": "gestion.effectifservice",
+  "pk": 2,
+  "fields": {
+    "service": 4,
+    "professeurs": 0,
+    "specialistes": 15,
+    "generalistes": 2,
+    "paramedicaux": 20,
+    "autres": 3
+  }
+},
+{
+  "model": "gestion.uniteservice",
+  "pk": 1,
+  "fields": {
+    "service": 1,
+    "nom": "Observation",
+    "description": "Srveillance du Malade",
+    "lits": 6
+  }
+},
+{
+  "model": "gestion.uniteservice",
+  "pk": 2,
+  "fields": {
+    "service": 1,
+    "nom": "DÚchoquage",
+    "description": "Urgences ",
+    "lits": 2
+  }
+},
+{
+  "model": "gestion.uniteservice",
+  "pk": 5,
+  "fields": {
+    "service": 4,
+    "nom": "Femmes",
+    "description": "UnitÚ reservÚe aux soins femmes",
+    "lits": 18
+  }
+},
+{
+  "model": "gestion.uniteservice",
+  "pk": 6,
+  "fields": {
+    "service": 4,
+    "nom": "Hommes",
+    "description": "UnitÚ reservÚe aux soins Hommes",
+    "lits": 18
+  }
+},
+{
+  "model": "gestion.uniteservice",
+  "pk": 7,
+  "fields": {
+    "service": 4,
+    "nom": "Ophtalmologie",
+    "description": "Patients d'ophtalmo",
+    "lits": 6
+  }
+},
+{
+  "model": "gestion.uniteservice",
+  "pk": 8,
+  "fields": {
+    "service": 2,
+    "nom": "PÚdiatrie",
+    "description": "Enfant jusqu'Ó 15 ans",
+    "lits": 20
+  }
+},
+{
+  "model": "gestion.uniteservice",
+  "pk": 9,
+  "fields": {
+    "service": 2,
+    "nom": "NÚonatologie",
+    "description": "Nouveau nÚe moins de six mois ",
+    "lits": 6
+  }
+},
+{
+  "model": "gestion.activiteservice",
+  "pk": 1,
+  "fields": {
+    "service": 1,
+    "admissions": 1350,
+    "journees_hospitalisation": 895,
+    "taux_occupation": "75.00",
+    "duree_moy_sejour": "3.00",
+    "taux_mortalite": "1.80"
+  }
+},
+{
+  "model": "gestion.medecin",
+  "pk": 1,
+  "fields": {
+    "service": 4,
+    "unite": 5,
+    "nom": "BEN AROUS AMINA",
+    "specialite": "Chirurgie",
+    "telephone": "0542330723",
+    "email": "BADIENBS@GMAIL.COM",
+    "grade": "Praticien SpÚcialiste Assistant",
+    "fonction": "Chef d UnitÚ",
+    "date_ajout": "2025-11-13T15:22:50.641Z",
+    "photo": "medecins/BNA.png",
+    "ordre": 0
+  }
+},
+{
+  "model": "gestion.medecin",
+  "pk": 2,
+  "fields": {
+    "service": 4,
+    "unite": null,
+    "nom": "Dr. AIDOUD Yacine",
+    "specialite": "Chirurgie",
+    "telephone": "0540 22 33 11",
+    "email": "BADIENBS@GMAIL.COM",
+    "grade": "Praticien SpÚcialiste Chef",
+    "fonction": "Chef de Service",
+    "date_ajout": "2025-11-19T13:10:29.292Z",
+    "photo": "",
+    "ordre": 0
+  }
+},
+{
+  "model": "gestion.medecin",
+  "pk": 3,
+  "fields": {
+    "service": 4,
+    "unite": 6,
+    "nom": "Dr. KHADRI Rachid",
+    "specialite": "Chirurgie",
+    "telephone": "0662 45 85 74",
+    "email": "BADIENBS@GMAIL.COM",
+    "grade": "Praticien SpÚcialiste Assistant",
+    "fonction": "Chef d UnitÚ",
+    "date_ajout": "2025-11-19T14:00:59.685Z",
+    "photo": "medecins/default-doctor.jpg",
+    "ordre": 0
+  }
+},
+{
+  "model": "gestion.medecin",
+  "pk": 4,
+  "fields": {
+    "service": 1,
+    "unite": null,
+    "nom": "Dr. ZOUAOUI Naima",
+    "specialite": "GÚnÚraliste",
+    "telephone": "0541 33 25 41",
+    "email": "BADIENBS@GMAIL.COM",
+    "grade": "GÚnÚraliste Chef",
+    "fonction": "Coordinateur",
+    "date_ajout": "2025-11-20T13:00:57.711Z",
+    "photo": "medecins/Zouaoui.jpg",
+    "ordre": 0
+  }
+},
+{
+  "model": "gestion.appuser",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$OoLn89ZhU37UMDinnDGd8g$j8UdM1R0tCD5cv+Vi3M1FM2B44RvRmxpFkijD4L1obU=",
+    "last_login": "2025-11-16T15:06:04.507Z",
+    "is_superuser": true,
+    "username": "Badie",
+    "first_name": "",
+    "last_name": "",
+    "email": "Badienbs@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-11-16T09:08:09.933Z",
+    "role": "moderateur",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "gestion.appuser",
+  "pk": 6,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$9eTrLzJDOxeasykjrIJp3C$mBe1ZxwOhArehoH8NXH4xq/Vw6zbxPkpuXHSOtSNOdc=",
+    "last_login": "2025-11-26T07:22:23.002Z",
+    "is_superuser": true,
+    "username": "Badix",
+    "first_name": "BADIE",
+    "last_name": "OUKEFIL",
+    "email": "BADIENBS@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-11-16T09:09:25Z",
+    "role": "admin",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "gestion.appuser",
+  "pk": 8,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$xs6sUOiw3tDcoYCzl1Pryg$NJFXPG+SwxTqQdX9CpfSKk60WOvgiezaDjoBqDb0du8=",
+    "last_login": "2025-11-16T10:55:42.269Z",
+    "is_superuser": false,
+    "username": "Sofiane",
+    "first_name": "",
+    "last_name": "",
+    "email": "SOF@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-11-16T10:55:30.575Z",
+    "role": "moderateur",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "gestion.messagecontact",
+  "pk": 1,
+  "fields": {
+    "nom": "Badie ",
+    "email": "BADIENBS@GMAIL.COM",
+    "sujet": "Test envois msg",
+    "message": "Salut ceci est le premier message ",
+    "date_envoi": "2025-11-17T12:15:18.993Z"
+  }
+},
+{
+  "model": "gestion.messagecontact",
+  "pk": 2,
+  "fields": {
+    "nom": "BADIE",
+    "email": "BADIENBS@GMAIL.COM",
+    "sujet": "Test envois msg",
+    "message": "premier msg envoyÚ pour test",
+    "date_envoi": "2025-11-17T12:16:30.509Z"
+  }
+},
+{
+  "model": "gestion.messagecontact",
+  "pk": 3,
+  "fields": {
+    "nom": "NBS",
+    "email": "BADIENBS@GMAIL.COM",
+    "sujet": "Test envois msg",
+    "message": "NBS msg send test",
+    "date_envoi": "2025-11-17T12:34:27.831Z"
+  }
+},
+{
+  "model": "gestion.messagecontact",
+  "pk": 4,
+  "fields": {
+    "nom": "NBS",
+    "email": "BADIENBS@GMAIL.COM",
+    "sujet": "Test envois msg",
+    "message": "NBS msg test send",
+    "date_envoi": "2025-11-17T12:39:30.836Z"
+  }
+},
+{
+  "model": "gestion.messagecontact",
+  "pk": 5,
+  "fields": {
+    "nom": "NBS",
+    "email": "BADIENBS@GMAIL.COM",
+    "sujet": "Test envois msg",
+    "message": "NBS msg test send",
+    "date_envoi": "2025-11-17T12:41:07.377Z"
+  }
+},
+{
+  "model": "gestion.messagecontact",
+  "pk": 6,
+  "fields": {
+    "nom": "2 eme test",
+    "email": "BADIENBS@GMAIL.COM",
+    "sujet": "Test envois msg 2",
+    "message": "2Þme essai",
+    "date_envoi": "2025-11-20T14:54:08.370Z"
+  }
+}
+]
