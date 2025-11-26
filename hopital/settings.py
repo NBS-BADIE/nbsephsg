@@ -8,6 +8,10 @@ import locale
 # Forcer UTF-8 partout
 if sys.getdefaultencoding().lower() != 'utf-8':
     locale.setlocale(locale.LC_ALL, 'C.UTF-8')
+<<<<<<< HEAD
+=======
+
+>>>>>>> a54c443 (Add Cloudinary for media storage)
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -18,7 +22,9 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "django-insecure-6ljv)smuzv@vpzvu$*56i
 # DEBUG = os.environ.get("DEBUG", "False") == "True"
 DEBUG = "False"
 #ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "*").split(",")
-ALLOWED_HOSTS = ['nbsephsg.onrender.com']
+#ALLOWED_HOSTS = ['nbsephsg.onrender.com']
+ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
+
 
 
 STATIC_URL = '/static/'
@@ -53,7 +59,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'widget_tweaks',
     'gestion.apps.GestionConfig',
+    'cloudinary',
+    'cloudinary_storage',
 ]
+
+# Fichiers médias : envoyés sur Cloudinary
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
