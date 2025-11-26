@@ -4,6 +4,7 @@ import dj_database_url
 from dotenv import load_dotenv
 
 
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 load_dotenv(BASE_DIR / ".env")
@@ -12,6 +13,17 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "django-insecure-6ljv)smuzv@vpzvu$*56i
 # DEBUG = os.environ.get("DEBUG", "False") == "True"
 DEBUG = "True"
 ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "*").split(",")
+
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / 'static']          # dossier source de tes images
+STATIC_ROOT = BASE_DIR / 'staticfiles'           # où collectstatic copie tout
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
+# ========== Medias 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 # Application
@@ -28,6 +40,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # ⚡ Important
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -83,14 +96,6 @@ LANGUAGE_CODE = 'fr-fr'
 TIME_ZONE = 'Africa/Algiers'
 USE_I18N = True
 USE_TZ = True
-
-# Static files
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / "static"]
-STATIC_ROOT = BASE_DIR / "staticfiles"
-
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Email
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
