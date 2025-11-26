@@ -28,8 +28,6 @@ from django.conf import settings
 import os, json
 from django.http import HttpResponse
 from django.core.management import call_command
-from django.http import HttpResponse
-from django.core.management import call_command
 from pathlib import Path
 
 
