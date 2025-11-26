@@ -18,9 +18,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "django-insecure-6ljv)smuzv@vpzvu$*56i
 DEBUG = "False"
 #ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "*").split(",")
 #ALLOWED_HOSTS = ['nbsephsg.onrender.com']
-ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
-
-
+ALLOWED_HOSTS = ["nbsephsg.onrender.com", "127.0.0.1", "localhost"]
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']          # dossier source de tes images
