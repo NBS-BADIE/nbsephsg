@@ -28,14 +28,22 @@ from django.conf import settings
 import os, json
 from django.http import HttpResponse
 from django.core.management import call_command
-
-# gestion/views.py
 from django.http import HttpResponse
 from django.core.management import call_command
 
+# appliquer migration sur render
 def apply_migrations(request):
     call_command('migrate')
     return HttpResponse("Migrations applied!")
+
+# gestion/views.py
+def import_data(request):
+    try:
+        call_command('loaddata', 'data.json')
+        return HttpResponse("✅ Données importées avec succès dans la base PostgreSQL Render.")
+    except Exception as e:
+        return HttpResponse(f"❌ Erreur pendant l'import : {e}")
+
 
 # =================== Migration ===================
 def apply_migrations(request):
