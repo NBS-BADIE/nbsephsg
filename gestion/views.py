@@ -36,13 +36,14 @@ def apply_migrations(request):
     call_command('migrate')
     return HttpResponse("Migrations applied!")
 
-# gestion/views.py
+# appliquer MAJ db data
 def import_data(request):
     try:
-        call_command('loaddata', 'data.json')
+        call_command('loaddata', 'data_clean.json')
         return HttpResponse("✅ Données importées avec succès dans la base PostgreSQL Render.")
     except Exception as e:
         return HttpResponse(f"❌ Erreur pendant l'import : {e}")
+
 
 
 # =================== Migration ===================
