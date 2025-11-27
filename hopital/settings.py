@@ -4,6 +4,9 @@ import dj_database_url
 from dotenv import load_dotenv
 import sys
 import locale
+import cloudinary
+
+
 
 # Forcer UTF-8 partout
 if sys.getdefaultencoding().lower() != 'utf-8':
@@ -59,7 +62,12 @@ INSTALLED_APPS = [
 # Fichiers médias : envoyés sur Cloudinary
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-
+cloudinary.config(
+    cloud_name="dn8efoxtz",
+    api_key="197591493143961",
+    api_secret="vTu8P0QF0y2E2V79GH0trSU7G5M",
+    secure=True
+)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

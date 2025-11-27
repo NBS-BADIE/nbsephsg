@@ -1,10 +1,7 @@
 from django.contrib.auth.models import AbstractUser, Group, Permission
 from django.db import models
 from django.conf import settings
-from django.contrib import admin
-
-#from .models import Service, ServiceDetail, EffectifService
-
+from cloudinary.models import CloudinaryField
 
 # === Définition des rôles ===
 ROLE_CHOICES = [
@@ -13,7 +10,7 @@ ROLE_CHOICES = [
     ('utilisateur', 'Utilisateur'),
 ]
 
-
+# === Compteur de visites ===
 class CompteurVisites(models.Model):
     nombre = models.IntegerField(default=0)
 
@@ -26,12 +23,13 @@ class CompteurVisites(models.Model):
 # ============================================================================================
 
 class Service(models.Model):
-    nom = models.CharField(max_length=100)
+    nom = models.CharField(max_length=255)
     description = models.TextField()
-    image = models.ImageField(upload_to='services/', blank=True, null=True)
+    image = CloudinaryField('image', blank=True, null=True)  # ✅ Cloudinary
 
     def __str__(self):
         return self.nom
+
 
 class ServiceDetail(models.Model):
     service = models.OneToOneField(Service, on_delete=models.CASCADE, related_name="details")
@@ -40,6 +38,7 @@ class ServiceDetail(models.Model):
 
     def __str__(self):
         return f"Détails : {self.service.nom}"
+
 
 class EffectifService(models.Model):
     service = models.OneToOneField(Service, on_delete=models.CASCADE, related_name="effectifs")
@@ -58,7 +57,7 @@ class UniteService(models.Model):
     service = models.ForeignKey(Service, on_delete=models.CASCADE, related_name="unites")
     nom = models.CharField(max_length=150)
     description = models.TextField(blank=True)
-    lits = models.PositiveIntegerField(default=0)  # <-- CHANGÉ ICI !
+    lits = models.PositiveIntegerField(default=0)
 
     def __str__(self):
         return f"{self.nom} ({self.service.nom})"
@@ -78,7 +77,7 @@ class ActiviteService(models.Model):
 
 
 # ============================================================================================
-# === MEDECIN : maintenant Service est défini → aucun problème
+# === MEDECIN
 # ============================================================================================
 
 GRADE_CHOICES = [
@@ -93,43 +92,33 @@ GRADE_CHOICES = [
 
 FONCTION_CHOICES = [
     ('Chef de Service', 'Chef de Service'),
-    ('Chef d Unité','Chef d Unité'),
+    ('Chef d Unité', 'Chef d Unité'),
     ('Coordinateur', 'Coordinateur'),
     ('Médecin', 'Médecin'),
-
 ]
 
 class Medecin(models.Model):
-    
-    service = models.ForeignKey(
-        Service,
-        on_delete=models.CASCADE,
-        related_name="medecins"
-    )
-    unite = models.ForeignKey(
-        UniteService,
-        on_delete=models.SET_NULL,
-        related_name="medecins",
-        null=True, blank=True
-    )
+    service = models.ForeignKey(Service, on_delete=models.CASCADE, related_name="medecins")
+    unite = models.ForeignKey(UniteService, on_delete=models.SET_NULL, related_name="medecins", null=True, blank=True)
     nom = models.CharField(max_length=100)
     specialite = models.CharField(max_length=100)
     telephone = models.CharField(max_length=20)
     email = models.EmailField()
-    grade = models.CharField(max_length=50, choices=GRADE_CHOICES, default='Interne')
+    grade = models.CharField(max_length=50, choices=GRADE_CHOICES, default='Généraliste')
     fonction = models.CharField(max_length=50, choices=FONCTION_CHOICES, blank=True, null=True)
     date_ajout = models.DateTimeField(auto_now_add=True)
-    photo = models.ImageField(upload_to="medecins/", blank=True, null=True)
+    photo = CloudinaryField('photo', blank=True, null=True)  # ✅ Cloudinary
     ordre = models.PositiveIntegerField(default=0)
 
     class Meta:
-        ordering = ['ordre']  # affichage selon l'ordre
+        ordering = ['ordre']
 
     def __str__(self):
         return f"{self.nom} - {self.specialite}"
 
+
 # ============================================================================================
-# === Utilisateur
+# === UTILISATEUR
 # ============================================================================================
 
 class AppUser(AbstractUser):
@@ -156,7 +145,7 @@ class AppUser(AbstractUser):
 
 
 # ============================================================================================
-# === Rapport & Contact
+# === RAPPORT & CONTACT
 # ============================================================================================
 
 class Rapport(models.Model):
@@ -178,5 +167,3 @@ class MessageContact(models.Model):
 
     def __str__(self):
         return f"{self.nom} - {self.sujet}"
-
-
