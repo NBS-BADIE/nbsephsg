@@ -545,30 +545,11 @@ body.dark-mode .theme-option:hover {
             <img src="/static/logo.png" alt="Logo" width="60">
             <strong class="ms-2">EPH Sidi Ghilès</strong>
         </a>
-        <div class="ms-3 theme-selector">
-            <button class="btn btn-outline-secondary dropdown-toggle" type="button" 
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                <span id="current-theme-icon">🌙</span>
-            </button>
-            <ul class="dropdown-menu theme-dropdown">
-                <li>
-                    <a class="dropdown-item theme-option" data-theme="auto">
-                        <span class="theme-icon">🌓</span> Auto
-                    </a>
-                </li>
-                <li>
-                    <a class="dropdown-item theme-option" data-theme="light">
-                        <span class="theme-icon">☀️</span> Clair
-                    </a>
-                </li>
-                <li>
-                    <a class="dropdown-item theme-option" data-theme="dark">
-                        <span class="theme-icon">🌙</span> Sombre
-                    </a>
-                </li>
-            </ul>
-        </div>
-        
+
+        <!-- Déplacer le sélecteur de thème APRÈS le navbar-toggler -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
         <div class="collapse navbar-collapse" id="mainNav">
             {% if request.user.is_authenticated %}
@@ -616,6 +597,30 @@ body.dark-mode .theme-option:hover {
                     </span>
                     <a href="{% url 'deconnexion' %}" class="btn btn-outline-danger ms-2">Déconnexion</a>
                     
+                    <!-- Sélecteur de thème DANS le navbar-collapse -->
+                    <div class="ms-3 theme-selector">
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" 
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <span id="current-theme-icon">🌙</span>
+                        </button>
+                        <ul class="dropdown-menu theme-dropdown">
+                            <li>
+                                <a class="dropdown-item theme-option" data-theme="auto">
+                                    <span class="theme-icon">🌓</span> Auto
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item theme-option" data-theme="light">
+                                    <span class="theme-icon">☀️</span> Clair
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item theme-option" data-theme="dark">
+                                    <span class="theme-icon">🌙</span> Sombre
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
             {% else %}
@@ -628,9 +633,58 @@ body.dark-mode .theme-option:hover {
             </ul>
                 <div class="d-flex ms-auto align-items-center">
                     <a href="{% url 'connexion' %}" class="btn btn-outline-primary ms-2">Connexion</a>
+                    
+                    <!-- Sélecteur de thème aussi pour les non-connectés -->
+                    <div class="ms-3 theme-selector">
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" 
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <span id="current-theme-icon">🌙</span>
+                        </button>
+                        <ul class="dropdown-menu theme-dropdown">
+                            <li>
+                                <a class="dropdown-item theme-option" data-theme="auto">
+                                    <span class="theme-icon">🌓</span> Auto
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item theme-option" data-theme="light">
+                                    <span class="theme-icon">☀️</span> Clair
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item theme-option" data-theme="dark">
+                                    <span class="theme-icon">🌙</span> Sombre
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             {% endif %}
-            
+        </div>
+
+        <!-- Sélecteur de thème pour desktop (optionnel - si vous voulez le garder visible hors menu mobile) -->
+        <div class="d-none d-lg-block ms-3 theme-selector">
+            <button class="btn btn-outline-secondary dropdown-toggle" type="button" 
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                <span id="current-theme-icon-desktop">🌙</span>
+            </button>
+            <ul class="dropdown-menu theme-dropdown">
+                <li>
+                    <a class="dropdown-item theme-option" data-theme="auto">
+                        <span class="theme-icon">🌓</span> Auto
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item theme-option" data-theme="light">
+                        <span class="theme-icon">☀️</span> Clair
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item theme-option" data-theme="dark">
+                        <span class="theme-icon">🌙</span> Sombre
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
 </nav>
