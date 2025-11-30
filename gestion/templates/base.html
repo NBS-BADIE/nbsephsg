@@ -81,25 +81,52 @@
         }
     }
 
-    footer {
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        background: white;
-        border-top: 1px solid #dee2e6;
-        font-size: 12px;
-        color: #555;
-        z-index: 1000;
-    }
+   footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: white;
+    border-top: 1px solid #dee2e6;
+    font-size: 12px;
+    color: #555 !important; /* Force la couleur */
+    z-index: 1000;
+}
 
-    footer img { opacity: 0.9; }
+/* Mode sombre */
+[data-bs-theme="dark"] footer {
+    background: #212529 !important;
+    border-top: 1px solid #444 !important;
+    color: #ffffff !important;
+}
 
-    /* Animation logo */
-    .home-logo { animation: float 3s ease-in-out infinite; }
-    @keyframes float {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-10px); }
-    }
+[data-bs-theme="dark"] footer .text-muted {
+    color: #ffffff !important;
+}
+
+[data-bs-theme="dark"] footer .text-center {
+    color: #ffffff !important;
+}
+
+footer img { opacity: 0.9; }
+
+/* Animation logo */
+.home-logo { animation: float 3s ease-in-out infinite; }
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+footer .text-center { 
+    flex: 1; 
+    text-align: center; 
+    font-weight: 500; 
+    color: #004085; 
+}
+
+/* Assurer la visibilité en mode sombre */
+[data-bs-theme="dark"] footer .text-center {
+    color: #ffffff !important;
+}
 
     /* Cartes */
     .home-card {
@@ -190,7 +217,7 @@
         box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     }
 
-    footer .text-center { flex: 1; text-align: center; font-weight: 500; color: #004085; }
+   /* footer .text-center { flex: 1; text-align: center; font-weight: 500; color: #004085; } */
 
 /* ===== SLIDER — les images occupent toute la zone du carousel ===== */
 .carousel {
@@ -674,14 +701,16 @@ body.dark-mode .theme-option:hover {
     <div class="container d-flex justify-content-between align-items-center flex-wrap">
         <div class="d-flex align-items-center">
             <img src="/static/nbs.png" alt="NBSoft" width="30" class="me-2">
-            <span>© 2025 - NBSoft - Badie</span>
+            <span class="text-body">© 2025 - NBSoft - Badie</span>
         </div>
 
         <div class="text-center">
-           <strong>Visites : {{ compteur_visites }}</strong>
+            {% if compteur_visites is not None %}
+            <strong class="text-body">Visites : {{ compteur_visites }}</strong>
+            {% endif %}
         </div>
 
-        <div id="horloge" class="text-nowrap">
+        <div id="horloge" class="text-nowrap text-body">
             {{ date_heure|date:"l d F Y | H:i:s" }}
         </div>
     </div>
