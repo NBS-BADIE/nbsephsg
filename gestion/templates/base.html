@@ -192,14 +192,76 @@
 
     footer .text-center { flex: 1; text-align: center; font-weight: 500; color: #004085; }
 
+/* ===== SLIDER — les images occupent toute la zone du carousel ===== */
+.carousel {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.carousel-inner {
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-item {
+    width: 100%;
+    height: 500px; /* hauteur fixe du slider */
+    position: relative;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;       /* couvre toute la zone sans déformation */
+    object-position: center; /* centre l'image */
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+@media (max-width: 768px) {
+    .carousel-item {
+        height: 300px; /* réduit sur mobile */
+    }
+}
+
     /* ===== CORRECTIONS MODE NUIT ===== */
     body.dark-mode {
         background-color: #121212 !important;
-        color: #e0e0e0;
+        color: #e0e0e0 !important;
     }
 
     body.dark-mode main {
         background-color: #121212 !important;
+    }
+
+    /* CORRECTION DU TEXTE EN MODE NUIT */
+    body.dark-mode p {
+        color: #e0e0e0 !important;
+    }
+
+    body.dark-mode h1, 
+    body.dark-mode h2, 
+    body.dark-mode h3, 
+    body.dark-mode h4, 
+    body.dark-mode h5, 
+    body.dark-mode h6 {
+        color: #ffffff !important;
+    }
+
+    body.dark-mode span {
+        color: #e0e0e0 !important;
+    }
+
+    body.dark-mode .text-muted {
+        color: #b0b0b0 !important;
+    }
+
+    body.dark-mode .text-dark {
+        color: #e0e0e0 !important;
     }
 
     body.dark-mode .card {
@@ -221,6 +283,17 @@
         border-color: #444;
     }
 
+    /* Mode nuit pour le slider */
+    body.dark-mode .carousel {
+        border: 1px solid #333;
+    }
+
+    body.dark-mode .carousel-caption {
+        background: rgba(0, 0, 0, 0.7);
+        border-radius: 8px;
+        padding: 15px;
+    }
+
     /* Navigation en mode nuit */
     body.dark-mode .topnav {
         background-color: #1e1e1e !important;
@@ -230,7 +303,11 @@
     body.dark-mode footer {
         background-color: #1e1e1e !important;
         border-top: 1px solid #333;
-        color: #e0e0e0;
+        color: #b0b0b0 !important;
+    }
+
+    body.dark-mode footer .text-center {
+        color: #b0b0b0 !important;
     }
 
     body.dark-mode .home-bg {
@@ -371,6 +448,13 @@
             background-color: #2c2c2c !important;
             border-color: #444 !important;
         }
+
+        /* Ajustement slider mobile */
+        .carousel {
+            margin-left: -10px !important;
+            margin-right: -10px !important;
+            width: calc(100% + 20px) !important;
+        }
     }
 
     /* Dropdown desktop */
@@ -397,7 +481,6 @@
         background-color: #d4edda !important;
         color: #155724 !important;
     }
-
 </style>
 </head>
 <body>
