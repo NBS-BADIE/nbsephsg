@@ -8,9 +8,6 @@
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
     <!-- Police Michroma -->
@@ -38,31 +35,50 @@
         top: 0;
         width: 100%;
         z-index: 1000;
-        background: #ffffffd9;
+        background: #ffffff;
         backdrop-filter: blur(6px);
         box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
 
     .navbar-brand strong {
         font-family: 'Michroma', sans-serif;
-        font-size: 1.3rem;
+        font-size: 1.1rem;
         color: #0056b3;
         font-weight: 600;
-        letter-spacing: 1px;
+        letter-spacing: 0.5px;
     }
 
     .btn-outline-primary {
         border-radius: 2px;
-        padding: 6px 16px;
+        padding: 6px 12px;
     }
 
-    /* Contenu principal */
+    /* Contenu principal - CORRIGÉ POUR MOBILE */
     main {
         flex: 1 0 auto;
         margin-top: 80px;
         margin-bottom: 70px;
-        padding: 40px;
+        padding: 15px;
         background-color: white;
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    /* Sur mobile, réduire les marges */
+    @media (max-width: 768px) {
+        main {
+            margin-top: 70px;
+            margin-bottom: 60px;
+            padding: 10px;
+        }
+        
+        .navbar-brand strong {
+            font-size: 1rem;
+        }
+        
+        .navbar-brand img {
+            width: 60px;
+        }
     }
 
     footer {
@@ -71,8 +87,9 @@
         width: 100%;
         background: white;
         border-top: 1px solid #dee2e6;
-        font-size: 14px;
+        font-size: 12px;
         color: #555;
+        z-index: 1000;
     }
 
     footer img { opacity: 0.9; }
@@ -96,31 +113,28 @@
     }
 
     /* Tous les boutons Bootstrap */
-.btn, .btn-outline-primary {
-    border-radius: 6px;
-    transition: 0.3s ease;
-}
+    .btn, .btn-outline-primary {
+        border-radius: 6px;
+        transition: 0.3s ease;
+    }
 
-/* Couleur pour btn-primary classique */
-.btn-primary {
-    background-color: #0077fffa;
-}
+    .btn-primary {
+        background-color: #0077fffa;
+    }
 
-.btn-primary:hover {
-    background-color: #84eea4fa;
-}
+    .btn-primary:hover {
+        background-color: #84eea4fa;
+    }
 
-/* Couleur pour outline-primary */
-.btn-outline-primary {
-    border-color: #0099ffef;
-    color: #0099ffef;
-}
+    .btn-outline-primary {
+        border-color: #0099ffef;
+        color: #0099ffef;
+    }
 
-.btn-outline-primary:hover {
-    background-color: #0099ffef;
-    color: white;
-}
-
+    .btn-outline-primary:hover {
+        background-color: #0099ffef;
+        color: white;
+    }
 
     /* Animation apparition */
     .fade-in {
@@ -134,190 +148,177 @@
     }
 
     /* Menu navigation */
-.nav-link {
-    color: #004085 !important;
-    font-weight: 500;
-    margin: 0 6px;
-    position: relative;
-    transition: all 0.3s ease; /* transition pour zoom et couleur */
-}
+    .nav-link {
+        color: #004085 !important;
+        font-weight: 500;
+        margin: 0 4px;
+        position: relative;
+        transition: all 0.3s ease;
+        font-size: 0.9rem;
+    }
 
-.nav-link::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    bottom: -6px; /* juste sous le texte */
-    transform: translateX(-50%) scale(1);
-    width: 10px;
-    height: 10px;
-    background-color: #007BFF; /* bleu */
-    border-radius: 50%;
-    opacity: 0;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: -6px;
+        transform: translateX(-50%) scale(1);
+        width: 8px;
+        height: 8px;
+        background-color: #007BFF;
+        border-radius: 50%;
+        opacity: 0;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
 
-.nav-link:hover, .nav-link.active {
-    color: #8B0000 !important; /* rouge brique foncé */
-    transform: scale(1.2); /* zoom texte */
-}
+    .nav-link:hover, .nav-link.active {
+        color: #8B0000 !important;
+        transform: scale(1.1);
+    }
 
-.nav-link:hover::after, .nav-link.active::after {
-    opacity: 1;
-    transform: translateX(-50%) scale(1.2); /* zoom cercle bleu */
-}
+    .nav-link:hover::after, .nav-link.active::after {
+        opacity: 1;
+        transform: translateX(-50%) scale(1.1);
+    }
 
-
-    .badge { font-size: 0.85rem; padding: 0.4em 0.6em; }
+    .badge { font-size: 0.8rem; padding: 0.3em 0.5em; }
 
     .home-bg {
         background-color: white;
-        padding: 30px;
+        padding: 20px;
         border-radius: 10px;
         box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     }
 
     footer .text-center { flex: 1; text-align: center; font-weight: 500; color: #004085; }
 
-/* style pour dark mode */
-body.dark-mode {
-    background-color: #121212;
-    color: #e0e0e0;
-}
+    /* style pour dark mode */
+    body.dark-mode {
+        background-color: #121212;
+        color: #e0e0e0;
+    }
 
-body.dark-mode .card {
-    background-color: #1e1e1e;
-    color: #e0e0e0;
-}
+    body.dark-mode .card {
+        background-color: #1e1e1e;
+        color: #e0e0e0;
+    }
 
-body.dark-mode .btn-outline-secondary {
-    border-color: #e0e0e0;
-    color: #e0e0e0;
-}
+    body.dark-mode .btn-outline-secondary {
+        border-color: #e0e0e0;
+        color: #e0e0e0;
+    }
 
-body.dark-mode input, 
-body.dark-mode select, 
-body.dark-mode textarea {
-    background-color: #2c2c2c;
-    color: #e0e0e0;
-    border-color: #444;
-}
+    body.dark-mode input, 
+    body.dark-mode select, 
+    body.dark-mode textarea {
+        background-color: #2c2c2c;
+        color: #e0e0e0;
+        border-color: #444;
+    }
 
-/* Style raccourci dashboard*/
-/* Animation générale */
-.card {
-    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
-    border-radius: 12px;
-}
+    /* Style raccourci dashboard*/
+    .card {
+        transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+        border-radius: 12px;
+    }
 
-.card:hover {
-    transform: translateY(-5px) scale(1.03);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
+    .card:hover {
+        transform: translateY(-5px) scale(1.03);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
 
-/* Zoom sur icône */
-.card i {
-    transition: transform 0.25s ease;
-}
-.card:hover i {
-    transform: scale(1.2);
-}
+    /* Zoom sur icône */
+    .card i {
+        transition: transform 0.25s ease;
+    }
+    .card:hover i {
+        transform: scale(1.2);
+    }
 
-/* ---- Couleurs au survol ---- */
-.card-hover-green:hover {
-    background-color: #e8f9e9; /* vert clair */
-}
+    /* ---- Couleurs au survol ---- */
+    .card-hover-green:hover {
+        background-color: #e8f9e9;
+    }
 
-.card-hover-blue:hover {
-    background-color: #e7f0ff; /* bleu clair */
-}
+    .card-hover-blue:hover {
+        background-color: #e7f0ff;
+    }
 
-.card-hover-yellow:hover {
-    background-color: #fff8d4; /* jaune clair */
-}
+    .card-hover-yellow:hover {
+        background-color: #fff8d4;
+    }
 
-.card-hover-red:hover {
-    background-color: #ffecec; /* rouge clair */
-}
+    .card-hover-red:hover {
+        background-color: #ffecec;
+    }
 
-/* Effet hover pour les raccourcis */
-.shortcut-card {
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-    border-radius: 12px;
-}
+    /* CORRECTIONS MOBILE POUR DROPDOWN */
+    @media (max-width: 768px) {
+        .navbar-nav .dropdown-menu {
+            background-color: white !important;
+            border: 1px solid #dee2e6 !important;
+            margin-top: 5px;
+        }
+        
+        .nav-item.dropdown:hover .dropdown-menu {
+            display: none;
+        }
+        
+        .nav-item.dropdown.show .dropdown-menu {
+            display: block;
+        }
+        
+        .d-flex.ms-auto {
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .d-flex.ms-auto .btn {
+            width: 100%;
+            margin: 2px 0;
+        }
+        
+        footer .container {
+            flex-direction: column;
+            gap: 5px;
+            text-align: center;
+        }
+        
+        #horloge {
+            font-size: 0.8rem;
+        }
+    }
 
-.shortcut-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
-}
+    /* Dropdown desktop */
+    @media (min-width: 769px) {
+        .nav-item.dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .dropdown-menu {
+            background-color: white;
+            border: 1px solid #dee2e6;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+    }
 
-/* Couleurs pastel au survol */
-.shortcut-red:hover    { background: #ffe5e5; }
-.shortcut-green:hover  { background: #e5ffe5; }
-.shortcut-blue:hover   { background: #e5f0ff; }
-.shortcut-yellow:hover { background: #fff7d4; }
-
-/* Légère animation pour stats */
-.stat-card {
-    transition: transform 0.25s ease;
-    border-radius: 12px;
-}
-
-.stat-card:hover {
-    transform: scale(1.03);
-}
-
-/* Supprime la bordure et l'ombre du dropdown */
-.nav-item.dropdown .dropdown-menu {
-    border: none !important;
-    box-shadow: none !important;
-    margin-top: 0; /* optionnel, pour coller le dropdown au menu */
-}
-
-/* Affiche le dropdown au survol */
-.nav-item.dropdown:hover > .dropdown-menu {
-    display: block;
-}
-/* Dropdown par défaut : transparent */
-.nav-item.dropdown .dropdown-menu {
-    background-color: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-}
-
-/* Affiche dropdown au survol */
-.nav-item.dropdown:hover > .dropdown-menu {
-    display: block;
-}
-
-/* Dropdown items : fond transparent par défaut */
-.nav-item.dropdown .dropdown-item {
-    background-color: transparent !important;
-    color: #000;
-}
-
-/* Survol des items du dropdown : fond vert clair */
-.nav-item.dropdown .dropdown-item:hover {
-    background-color: #d4edda !important; /* vert clair */
-    color: #155724 !important; /* texte vert foncé */
-}
-
-/* Survol du bouton du menu principal : fond transparent */
-.nav-item.dropdown:hover > .dropdown-toggle {
-    background-color: transparent !important;
-}
+    .dropdown-item:hover {
+        background-color: #d4edda !important;
+        color: #155724 !important;
+    }
 
 </style>
 </head>
 <body>
 
-    
 <!-- Barre de navigation -->
 <nav class="navbar navbar-expand-lg navbar-light topnav shadow-sm">
     <div class="container-fluid">
         
         <a class="navbar-brand d-flex align-items-center" href="{% url 'accueil' %}">
-            <img src="/static/logo.png" alt="Logo" width="80">
-            <strong>EPH Sidi Ghilès</strong>
+            <img src="/static/logo.png" alt="Logo" width="60">
+            <strong class="ms-2">EPH Sidi Ghilès</strong>
         </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
@@ -327,18 +328,16 @@ body.dark-mode textarea {
         <div class="collapse navbar-collapse" id="mainNav">
             {% if request.user.is_authenticated %}
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="{% url 'ephsg' %}">Présentation de l'hôpital</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'ephsg' %}">Présentation</a></li>
 
                     {% if user_role == 'admin' %}
                         <ul class="navbar-nav">
-
-                            
                             <!-- Dashboard -->
                             <li class="nav-item">
                                 <a class="nav-link" href="{% url 'admin_dashboard' %}">Dashboard</a>
                             </li>
 
-                            <!-- Gestion (sous-menu au survol) -->
+                            <!-- Gestion (sous-menu) -->
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="gestionDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Gestion
@@ -354,7 +353,6 @@ body.dark-mode textarea {
                             <li class="nav-item">
                                 <a class="nav-link" href="{% url 'rapports' %}">Rapports</a>
                             </li>
-
                         </ul>
                     {% elif user_role == 'moderateur' %}
                         <li class="nav-item"><a class="nav-link" href="{% url 'moderation' %}">Modération</a></li>
@@ -363,61 +361,49 @@ body.dark-mode textarea {
                        <li class="nav-item"><a class="nav-link" href="{% url 'services_list' %}">Services</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'medecins' %}">Médecins</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'a_propos' %}">à Propos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'a_propos' %}">À Propos</a></li>
                     {% endif %}
                 </ul>
 
-                <div class="d-flex ms-auto align-items-center">
+                <div class="d-flex ms-auto align-items-center flex-wrap">
                     <span class="me-2 badge bg-info text-dark">
                         {{ request.user.username }} ({{ user_role|title }})
                     </span>
-                    <!-- <span class="badge bg-secondary ms-2">
-                        Visites : {{ compteur_visites }}
-                    </span> -->
                     <a href="{% url 'deconnexion' %}" class="btn btn-outline-danger ms-2">Déconnexion</a>
-                    
-
+                    <button id="theme-toggle" class="btn btn-outline-secondary ms-2">
+                        🌙
+                    </button>
                 </div>
-                <div class="ms-3">
-            <button id="theme-toggle" class="btn btn-outline-white">
-                🌙 / ☀️
-            </button>
-        </div>
 
             {% else %}
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                <li class="nav-item"><a class="nav-link" href="{% url 'ephsg' %}">Présentation de l'hôpital</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'ephsg' %}">Présentation</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'services_list' %}">Services</a></li>
-                <li class="nav-item"><a class="nav-link" >Médecins</a></li>
+                <li class="nav-item"><a class="nav-link">Médecins</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'a_propos' %}">à Propos</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'a_propos' %}">À Propos</a></li>
             </ul>
-                <div class="d-flex ms-auto">
+                <div class="d-flex ms-auto align-items-center">
                     <a href="{% url 'connexion' %}" class="btn btn-outline-primary ms-2">Connexion</a>
+                    <button id="theme-toggle" class="btn btn-outline-secondary ms-2">
+                        🌙
+                    </button>
                 </div>
-                <div class="ms-3">
-            <button id="theme-toggle" class="btn btn-outline-white">
-                🌙 / ☀️
-            </button>
-        </div>
             {% endif %}
         </div>
-
-                  
-
     </div>
 </nav>
 
 <!-- Contenu principal -->
-<main class="container-fluid py-5 px-5">
+<main class="container-fluid">
     {% block content %}{% endblock %}
 </main>
 
 <!-- Pied de page -->
 <footer class="text-muted py-2">
-    <div class="container d-flex justify-content-between align-items-center">
-        <div>
-            <img src="/static/nbs.png" alt="NBSoft" width="40" class="me-2">
+    <div class="container d-flex justify-content-between align-items-center flex-wrap">
+        <div class="d-flex align-items-center">
+            <img src="/static/nbs.png" alt="NBSoft" width="30" class="me-2">
             <span>© 2025 - NBSoft - Badie</span>
         </div>
 
@@ -425,7 +411,7 @@ body.dark-mode textarea {
            <strong>Visites : {{ compteur_visites }}</strong>
         </div>
 
-        <div id="horloge">
+        <div id="horloge" class="text-nowrap">
             {{ date_heure|date:"l d F Y | H:i:s" }}
         </div>
     </div>
@@ -452,32 +438,40 @@ const toggle = document.getElementById('theme-toggle');
 // Charger le thème sauvegardé
 if (localStorage.getItem('theme') === 'dark') {
     document.body.classList.add('dark-mode');
+    toggle.textContent = '☀️';
+} else {
+    toggle.textContent = '🌙';
 }
 
 toggle.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
-    // Sauvegarder le choix
+    // Sauvegarder le choix et changer l'icône
     if (document.body.classList.contains('dark-mode')) {
         localStorage.setItem('theme', 'dark');
+        toggle.textContent = '☀️';
     } else {
         localStorage.setItem('theme', 'light');
+        toggle.textContent = '🌙';
     }
 });
 
-document.addEventListener("DOMContentLoaded", function() {
-    var dropdowns = document.querySelectorAll('.nav-item.dropdown');
-
-    dropdowns.forEach(function(dropdown) {
-        dropdown.addEventListener('mouseenter', function() {
-            var toggle = bootstrap.Dropdown.getOrCreateInstance(dropdown.querySelector('.dropdown-toggle'));
-            toggle.show();
-        });
-        dropdown.addEventListener('mouseleave', function() {
-            var toggle = bootstrap.Dropdown.getOrCreateInstance(dropdown.querySelector('.dropdown-toggle'));
-            toggle.hide();
+// Gestion des dropdowns au survol (desktop seulement)
+if (window.innerWidth > 768) {
+    document.addEventListener("DOMContentLoaded", function() {
+        var dropdowns = document.querySelectorAll('.nav-item.dropdown');
+        
+        dropdowns.forEach(function(dropdown) {
+            dropdown.addEventListener('mouseenter', function() {
+                var toggle = bootstrap.Dropdown.getOrCreateInstance(dropdown.querySelector('.dropdown-toggle'));
+                toggle.show();
+            });
+            dropdown.addEventListener('mouseleave', function() {
+                var toggle = bootstrap.Dropdown.getOrCreateInstance(dropdown.querySelector('.dropdown-toggle'));
+                toggle.hide();
+            });
         });
     });
-});
+}
 </script>
 
 </body>
