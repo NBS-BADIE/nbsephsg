@@ -546,7 +546,7 @@ body.dark-mode .theme-option:hover {
             <strong class="ms-2">EPH Sidi Ghilès</strong>
         </a>
 
-        <!-- Déplacer le sélecteur de thème APRÈS le navbar-toggler -->
+        <!-- Bouton toggle pour mobile -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -595,10 +595,9 @@ body.dark-mode .theme-option:hover {
                     <span class="me-2 badge bg-info text-dark">
                         {{ request.user.username }} ({{ user_role|title }})
                     </span>
-                    <a href="{% url 'deconnexion' %}" class="btn btn-outline-danger ms-2">Déconnexion</a>
                     
-                    <!-- Sélecteur de thème DANS le navbar-collapse -->
-                    <div class="ms-3 theme-selector">
+                    <!-- Sélecteur de thème AVANT la déconnexion -->
+                    <div class="me-2 theme-selector">
                         <button class="btn btn-outline-secondary dropdown-toggle" type="button" 
                                 data-bs-toggle="dropdown" aria-expanded="false">
                             <span id="current-theme-icon">🌙</span>
@@ -621,6 +620,8 @@ body.dark-mode .theme-option:hover {
                             </li>
                         </ul>
                     </div>
+                    
+                    <a href="{% url 'deconnexion' %}" class="btn btn-outline-danger">Déconnexion</a>
                 </div>
 
             {% else %}
@@ -632,10 +633,8 @@ body.dark-mode .theme-option:hover {
                 <li class="nav-item"><a class="nav-link" href="{% url 'a_propos' %}">À Propos</a></li>
             </ul>
                 <div class="d-flex ms-auto align-items-center">
-                    <a href="{% url 'connexion' %}" class="btn btn-outline-primary ms-2">Connexion</a>
-                    
-                    <!-- Sélecteur de thème aussi pour les non-connectés -->
-                    <div class="ms-3 theme-selector">
+                    <!-- Sélecteur de thème AVANT la connexion -->
+                    <div class="me-2 theme-selector">
                         <button class="btn btn-outline-secondary dropdown-toggle" type="button" 
                                 data-bs-toggle="dropdown" aria-expanded="false">
                             <span id="current-theme-icon">🌙</span>
@@ -658,37 +657,13 @@ body.dark-mode .theme-option:hover {
                             </li>
                         </ul>
                     </div>
+                    
+                    <a href="{% url 'connexion' %}" class="btn btn-outline-primary">Connexion</a>
                 </div>
             {% endif %}
         </div>
-
-        <!-- Sélecteur de thème pour desktop (optionnel - si vous voulez le garder visible hors menu mobile) -->
-        <div class="d-none d-lg-block ms-3 theme-selector">
-            <button class="btn btn-outline-secondary dropdown-toggle" type="button" 
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                <span id="current-theme-icon-desktop">🌙</span>
-            </button>
-            <ul class="dropdown-menu theme-dropdown">
-                <li>
-                    <a class="dropdown-item theme-option" data-theme="auto">
-                        <span class="theme-icon">🌓</span> Auto
-                    </a>
-                </li>
-                <li>
-                    <a class="dropdown-item theme-option" data-theme="light">
-                        <span class="theme-icon">☀️</span> Clair
-                    </a>
-                </li>
-                <li>
-                    <a class="dropdown-item theme-option" data-theme="dark">
-                        <span class="theme-icon">🌙</span> Sombre
-                    </a>
-                </li>
-            </ul>
-        </div>
     </div>
 </nav>
-
 <!-- Contenu principal -->
 <main class="container-fluid">
     {% block content %}{% endblock %}
@@ -718,7 +693,7 @@ body.dark-mode .theme-option:hover {
 // Gestion du thème auto/manuel
 document.addEventListener("DOMContentLoaded", function() {
     const themeOptions = document.querySelectorAll('.theme-option');
-    const currentThemeIcon = document.getElementById('current-theme-icon');
+    const currentThemeIcons = document.querySelectorAll('#current-theme-icon');
     
     // Fonction pour détecter si c'est la nuit (18h-6h)
     function isNightTime() {
@@ -726,14 +701,21 @@ document.addEventListener("DOMContentLoaded", function() {
         return hour >= 18 || hour < 6;
     }
     
+    // Mettre à jour toutes les icônes
+    function updateAllIcons(icon) {
+        currentThemeIcons.forEach(iconElement => {
+            iconElement.textContent = icon;
+        });
+    }
+    
     // Appliquer le thème auto
     function applyAutoTheme() {
         if (isNightTime()) {
             document.body.classList.add('dark-mode');
-            if (currentThemeIcon) currentThemeIcon.textContent = '🌙';
+            updateAllIcons('🌙');
         } else {
             document.body.classList.remove('dark-mode');
-            if (currentThemeIcon) currentThemeIcon.textContent = '☀️';
+            updateAllIcons('☀️');
         }
     }
     
@@ -751,10 +733,10 @@ document.addEventListener("DOMContentLoaded", function() {
         } else {
             if (savedMode === 'dark') {
                 document.body.classList.add('dark-mode');
-                if (currentThemeIcon) currentThemeIcon.textContent = '🌙';
+                updateAllIcons('🌙');
             } else {
                 document.body.classList.remove('dark-mode');
-                if (currentThemeIcon) currentThemeIcon.textContent = '☀️';
+                updateAllIcons('☀️');
             }
             // Mettre à jour l'interface
             themeOptions.forEach(opt => opt.classList.remove('active'));
@@ -784,10 +766,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 
                 if (theme === 'dark') {
                     document.body.classList.add('dark-mode');
-                    if (currentThemeIcon) currentThemeIcon.textContent = '🌙';
+                    updateAllIcons('🌙');
                 } else {
                     document.body.classList.remove('dark-mode');
-                    if (currentThemeIcon) currentThemeIcon.textContent = '☀️';
+                    updateAllIcons('☀️');
                 }
             }
         });
@@ -808,7 +790,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-// Gestion des dropdowns au survol (desktop seulement) - DÉPLACÉ EN DEHORS DU DOMCONTENTLOADED
+// Gestion des dropdowns au survol (desktop seulement)
 document.addEventListener("DOMContentLoaded", function() {
     if (window.innerWidth > 768) {
         var dropdowns = document.querySelectorAll('.nav-item.dropdown');
