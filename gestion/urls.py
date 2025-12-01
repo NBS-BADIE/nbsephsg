@@ -22,6 +22,7 @@ urlpatterns = [
     path("ephsg/", views.ephsg, name="ephsg"),
     path('a-propos/', views.a_propos, name='a_propos'),
     path('pemalade/', views.pemalade, name='pemalade'),
+    path('qualite/', views.qualite, name='qualite'),
 
 
     # ================= ADMIN PERSONNALISÉ =================
