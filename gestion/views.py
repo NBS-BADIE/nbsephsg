@@ -93,9 +93,15 @@ def ephsg(request):
 def a_propos(request):
     return render(request, 'a_propos.html')
 
+
 # =================== P.E Malade ===================
 def pemalade(request):
     return render(request, 'pemalade.html')
+
+# =================== Démarche Qualité ===================
+def qualite(request):
+    return render(request, 'qualite.html')
+
 
 # =================== Accueil ===================
 def accueil(request):
