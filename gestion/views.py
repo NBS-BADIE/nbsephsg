@@ -106,6 +106,9 @@ def qualite(request):
 def sg(request):
     return render(request, 'sg.html')
 
+# =================== Plateaux Techniques ===================
+def pt(request):
+    return render(request, 'pt.html')
 
 # =================== Accueil ===================
 def accueil(request):
