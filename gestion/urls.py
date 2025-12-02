@@ -25,6 +25,7 @@ urlpatterns = [
     path('qualite/', views.qualite, name='qualite'),
     path('sg/', views.sg, name='sg'),
     path('pt/', views.pt, name='pt'),
+    path('urgence/', views.urgence, name='urgence'),
 
 
     # ================= ADMIN PERSONNALISÉ =================
