@@ -102,6 +102,10 @@ def pemalade(request):
 def qualite(request):
     return render(request, 'qualite.html')
 
+# =================== Service Généraux ===================
+def sg(request):
+    return render(request, 'sg.html')
+
 
 # =================== Accueil ===================
 def accueil(request):
