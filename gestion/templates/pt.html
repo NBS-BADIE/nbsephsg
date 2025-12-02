@@ -983,4 +983,35 @@
         </div>
     </div>
 </section>
+
+<script>
+    // Animation au défilement
+    document.addEventListener('DOMContentLoaded', function() {
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                    fadeInObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        fadeElements.forEach(element => {
+            element.style.animationPlayState = 'paused';
+            fadeInObserver.observe(element);
+        });
+        
+        // Initialisation des animations pour les éléments déjà visibles
+        fadeElements.forEach(element => {
+            const rect = element.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                element.style.animationPlayState = 'running';
+            }
+        });
+    });
+</script>
+
+
 {% endblock %}
